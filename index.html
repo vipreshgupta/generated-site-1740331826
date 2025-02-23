@@ -1,0 +1,395 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Book reliable technician services for your home appliances.">
+  <meta name="keywords" content="Home Services, Technician Booking, Appliance Repair">
+  <title>Home Service Booking</title>
+  <style>
+    /* CSS Styles */
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #ECF0F1;
+      background-color: #2C2C2C;
+      font-size: 16px;
+      line-height: 1.6;
+    }
+
+    h1, h2, h3 {
+      color: #FFFFFF;
+    }
+
+    nav {
+      background-color: #1A1A2E;
+      padding: 1rem 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      text-align: center;
+    }
+
+    nav ul li {
+      display: inline;
+      margin: 0 1rem;
+    }
+
+    nav a {
+      color: #ECF0F1;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #1ABC9C;
+    }
+
+    #hero {
+      text-align: center;
+      padding: 4rem 1rem;
+      background-color: #333;
+      margin-top: 4rem;
+    }
+
+    #hero img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    #hero h1 {
+      margin-bottom: 1rem;
+    }
+
+    #hero button {
+      background-color: #E67E22;
+      color: #FFFFFF;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    #hero button:hover {
+      background-color: #1ABC9C;
+    }
+
+    #services {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .service-card {
+      background-color: #333;
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 1rem;
+      text-align: center;
+      flex: 1 1 100%;
+      max-width: 300px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .service-card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      cursor: pointer;
+    }
+
+    .service-card img {
+      max-width: 100px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    .booking-steps {
+      display: flex;
+      justify-content: center;
+      padding: 2rem 1rem;
+    }
+
+    .step {
+      padding: 0.5rem 1rem;
+      margin: 0 0.5rem;
+      border-radius: 5px;
+      background-color: #333;
+    }
+
+    .step.active {
+      background-color: #1ABC9C;
+    }
+
+    #pricing {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    #pricing select {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border-radius: 5px;
+    }
+
+    footer {
+      background-color: #1A1A2E;
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    footer a {
+      color: #ECF0F1;
+      text-decoration: none;
+      margin: 0 1rem;
+    }
+
+    footer p {
+      margin-top: 1rem;
+    }
+
+    .trust-badges {
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .trust-badges img {
+      width: 50px;
+      height: auto;
+      margin: 0 0.5rem;
+    }
+
+    #testimonials {
+      text-align: center;
+      padding: 2rem 1rem;
+    }
+
+    #testimonials blockquote {
+      font-style: italic;
+      margin-bottom: 1rem;
+    }
+
+    #testimonials cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-weight: bold;
+    }
+
+    form label {
+      display: block;
+      margin-top: 1rem;
+    }
+
+    form select,
+    form input[type="date"],
+    form input[type="time"],
+    form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      border-radius: 5px;
+      border: 1px solid #333;
+      margin-bottom: 1rem;
+      background-color: #333;
+      color: #ECF0F1;
+    }
+
+    form button[type="submit"] {
+      background-color: #E67E22;
+      color: #FFFFFF;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    form button[type="submit"]:hover {
+      background-color: #1ABC9C;
+    }
+
+    /* Responsive adjustments */
+    @media (min-width: 768px) {
+      .service-card {
+        flex: 1 1 45%;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .service-card {
+        flex: 1 1 30%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <ul>
+      <li><a href="#hero">Home</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#pricing">Pricing</a></li>
+      <li><a href="#about">About Us</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section id="hero">
+    <img src="https://source.unsplash.com/1600x900/?home-service" alt="Home Service Hero Image">
+    <h1>Reliable Home Services at Your Fingertips</h1>
+    <button onclick="scrollToBooking()">Book an Appointment</button>
+  </section>
+
+  <section id="services">
+    <div class="service-card" onclick="selectService('ro')">
+      <img src="https://source.unsplash.com/100x100/?water-purifier" alt="RO Service">
+      <h2>RO Service</h2>
+      <p>Expert repair and maintenance for your RO water purifiers.</p>
+    </div>
+    <div class="service-card" onclick="selectService('washing-machine')">
+      <img src="https://source.unsplash.com/100x100/?washing-machine" alt="Washing Machine Service">
+      <h2>Washing Machine Service</h2>
+      <p>Expert repair and maintenance for your washing machines.</p>
+    </div>
+    <div class="service-card" onclick="selectService('chimney')">
+      <img src="https://source.unsplash.com/100x100/?chimney" alt="Chimney Service">
+      <h2>Chimney Service</h2>
+      <p>Professional cleaning and maintenance for your kitchen chimneys.</p>
+    </div>
+    <div class="service-card" onclick="selectService('ac')">
+      <img src="https://source.unsplash.com/100x100/?ac-service" alt="AC Service">
+      <h2>AC Service</h2>
+      <p>Comprehensive repair and servicing for your air conditioners.</p>
+    </div>
+    <div class="service-card" onclick="selectService('refrigerator')">
+      <img src="https://source.unsplash.com/100x100/?refrigerator" alt="Refrigerator Service">
+      <h2>Refrigerator Service</h2>
+      <p>Reliable repair and maintenance for your refrigerators.</p>
+    </div>
+  </section>
+
+  <div class="booking-steps">
+    <div class="step active">1. Select Service</div>
+    <div class="step">2. Choose Technician</div>
+    <div class="step">3. Schedule Appointment</div>
+    <div class="step">4. Provide Details</div>
+    <div class="step">5. Confirm Booking</div>
+  </div>
+
+  <section id="pricing">
+    <h2>Estimate Your Service Cost</h2>
+    <label for="service-type">Service Type:</label>
+    <select id="service-type" onchange="updateEstimate()">
+      <option value="ro">RO Service</option>
+      <option value="washing-machine">Washing Machine Service</option>
+      <option value="chimney">Chimney Service</option>
+      <option value="ac">AC Service</option>
+      <option value="refrigerator">Refrigerator Service</option>
+    </select>
+    <p>Estimated Cost: <span id="estimate">$50</span></p>
+  </section>
+
+  <section>
+    <h2>Book an Appointment</h2>
+    <form id="booking-form">
+      <label for="appointment-date">Choose Date:</label>
+      <input type="date" id="appointment-date" name="appointment-date">
+
+      <label for="appointment-time">Choose Time:</label>
+      <input type="time" id="appointment-time" name="appointment-time">
+
+      <label for="customer-name">Your Name:</label>
+      <input type="text" id="customer-name" name="customer-name">
+
+      <label for="customer-email">Your Email:</label>
+      <input type="email" id="customer-email" name="customer-email">
+
+      <label for="customer-phone">Your Phone:</label>
+      <input type="tel" id="customer-phone" name="customer-phone">
+
+      <label for="customer-address">Address:</label>
+      <textarea id="customer-address" name="customer-address"></textarea>
+
+      <button type="submit">Confirm Booking</button>
+    </form>
+  </section>
+
+  <section id="testimonials">
+    <h2>What Our Customers Say</h2>
+    <blockquote>
+      "Excellent service and prompt response!"
+      <cite>- Jane Doe</cite>
+    </blockquote>
+    <blockquote>
+      "Technician was knowledgeable and fixed the issue quickly."
+      <cite>- John Smith</cite>
+    </blockquote>
+  </section>
+
+  <div class="trust-badges">
+    <img src="https://source.unsplash.com/50x50/?ssl" alt="SSL Certificate">
+    <img src="https://source.unsplash.com/50x50/?secure" alt="Secure Payment">
+  </div>
+
+  <footer>
+    <div class="footer-links">
+      <a href="#about">About Us</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <p>&copy; 2024 YourCompanyName. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // JavaScript Functions
+    function scrollToBooking() {
+      const bookingSection = document.querySelector('#pricing');
+      bookingSection.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function selectService(service) {
+      alert(`You have selected ${service} service.`);
+      // Additional logic to handle service selection
+    }
+
+    function updateEstimate() {
+      const service = document.getElementById('service-type').value;
+      let cost = 0;
+      switch (service) {
+        case 'ro':
+          cost = 50;
+          break;
+        case 'washing-machine':
+          cost = 75;
+          break;
+        case 'chimney':
+          cost = 60;
+          break;
+        case 'ac':
+          cost = 100;
+          break;
+        case 'refrigerator':
+          cost = 80;
+          break;
+      }
+      document.getElementById('estimate').innerText = `$${cost}`;
+    }
+
+    document.getElementById('booking-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      alert('Your appointment has been booked successfully!');
+      // Additional logic for booking confirmation
+    });
+  </script>
+</body>
+</html>
